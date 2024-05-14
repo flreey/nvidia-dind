@@ -22,7 +22,6 @@ RUN apt-get clean && apt-get update && apt-get upgrade -y && apt-get install --n
         make \
         gcc \
         python3.11 \
-        python3.11-venv \
         jq \
         systemctl \
         ag \

@@ -23,7 +23,6 @@ RUN apt-get clean && apt-get update && apt-get upgrade -y && apt-get install --n
         gcc \
         python3.11 \
         jq \
-        systemctl \
         ag \
         wget && \
     rm -rf /var/lib/apt/list/*

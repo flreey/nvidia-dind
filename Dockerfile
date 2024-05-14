@@ -23,7 +23,7 @@ RUN apt-get clean && apt-get update && apt-get upgrade -y && apt-get install --n
         gcc \
         python3.11 \
         python3.11-venv \
-        jp \
+        jq \
         systemctl \
         ag \
         wget && \

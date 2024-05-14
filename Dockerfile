@@ -16,16 +16,16 @@ RUN apt-get clean && apt-get update && apt-get upgrade -y && apt-get install --n
         gnupg \
         software-properties-common \
         supervisor \
-		vim \
-		sudo \
-		git \
-		make \
-		gcc \
-		python3.11 \
-		python3.11-venv \
-		jp \
-		systemctl \
-		ag \
+        vim \
+        sudo \
+        git \
+        make \
+        gcc \
+        python3.11 \
+        python3.11-venv \
+        jp \
+        systemctl \
+        ag \
         wget && \
     rm -rf /var/lib/apt/list/*
 

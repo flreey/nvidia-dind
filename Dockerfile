@@ -16,8 +16,32 @@ RUN apt-get clean && apt-get update && apt-get upgrade -y && apt-get install --n
         gnupg \
         software-properties-common \
         supervisor \
+		vim \
+		sudo \
+		git \
+		make \
+		gcc \
+		python3.11 \
+		python3.11-venv \
+		jp \
+		systemctl \
+		ag \
         wget && \
     rm -rf /var/lib/apt/list/*
+
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# Source Rust environment variables
+RUN echo "source $HOME/.cargo/env" >> $HOME/.bashrc
+
+# 下载并安装指定版本的Golang
+RUN wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz \
+    && tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz \
+    && rm go1.22.2.linux-amd64.tar.gz
+
+# 设置环境变量
+RUN echo "PATH=$PATH:/usr/local/go/bin" >> $HOME/.bashrc
+ENV PATH=$PATH:/usr/local/go/bin
+
 
 # NVIDIA Container Toolkit and Docker
 RUN mkdir -pm755 /etc/apt/keyrings && curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && chmod a+r /etc/apt/keyrings/docker.gpg && \
